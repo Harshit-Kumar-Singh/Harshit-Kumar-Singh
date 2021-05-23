@@ -1,10 +1,8 @@
-import 'package:First_App/Scree1.dart';
 
-import './main.dart';
-import './SecondPage.dart';
-import './SignUpPage.dart';
+import 'package:First_App/Scree1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+// import 'package:authentification/Start.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,8 +18,7 @@ class _HomePageState extends State<HomePage> {
   checkAuthentification() async {
     _auth.authStateChanges().listen((user) {
       if (user == null) {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Login()));
+        Navigator.of(context).pushReplacementNamed("start");
       }
     });
   }
@@ -44,8 +41,6 @@ class _HomePageState extends State<HomePage> {
 
     final googleSignIn = GoogleSignIn();
     await googleSignIn.signOut();
-    Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Login()));
   }
 
   @override
@@ -67,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   height: 300,
                   child: Image(
-                    image: AssetImage("assets/Image/Welcome.png"),
+                    image: AssetImage("images/welcome.jpg"),
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -94,10 +89,9 @@ class _HomePageState extends State<HomePage> {
                 RaisedButton(
                   padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
                   onPressed:(){
-                    Navigator.push(context,
-            MaterialPageRoute(builder: (context) => DashBoardFinal()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DashBoardFinal()));
                   },
-                  child: Text('List Of Currencies',
+                  child: Text('Lets Get Started',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
