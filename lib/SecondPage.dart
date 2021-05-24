@@ -54,7 +54,7 @@ class _StartState extends State<Start> {
             Container(
               height: 400,
               child: Image(
-                image: AssetImage("assets/Image/start.jpg"),
+                image: AssetImage("assets/Image/First.png"),
                 fit: BoxFit.contain,
               ),
             ),
@@ -68,17 +68,14 @@ class _StartState extends State<Start> {
                         color: Colors.black),
                     children: <TextSpan>[
                   TextSpan(
-                      text: 'X Groceries',
+                      text: 'Crypto World',
                       style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.orange))
                 ])),
             SizedBox(height: 10.0),
-            Text(
-              'Fresh Groceries Delivered at your Doorstep',
-              style: TextStyle(color: Colors.black),
-            ),
+            
             SizedBox(height: 30.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -86,13 +83,18 @@ class _StartState extends State<Start> {
                 RaisedButton(
                     padding: EdgeInsets.only(left: 30, right: 30),
                     onPressed: navigateToLogin,
-                    child: Text(
-                      'LOGIN',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                    child: Card(
+                        child: Text(
+                        'LOGIN',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        
                       ),
+                      
+                      
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
