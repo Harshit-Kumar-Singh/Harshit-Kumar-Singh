@@ -93,11 +93,10 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
                 children: <Widget>[
                   Container(
                     child: Card(
-                     
                       shadowColor: Colors.blue[200],
                       child: InkWell(
                         onTap: () async {
-                          
+
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,17 +152,16 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
                                       Icons.arrow_drop_up,
                                       color: Colors.green,
                                       size: 30.0,
-
                                     ),
                                     Text(
-                                      currencies[index]['changePercent24Hr'],
+                                      "${currencies[index]['changePercent24Hr'].substring(0,5)}%",
                                     ),
                                   ],
                                 ),
                                 Text(
-                                  '\$1234',
+                                  "\$${currencies[index]['priceUsd'].substring(0,7)}",
                                   style: TextStyle(
-                                    color: Colors.green[700],
+                                    color: Colors.lightGreenAccent[400],
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),

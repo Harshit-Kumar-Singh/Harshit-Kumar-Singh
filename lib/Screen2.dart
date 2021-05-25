@@ -18,9 +18,7 @@ class Details extends StatelessWidget {
       body: Container(
         child: Column(
           children: <Widget>[
-            Text(
-              title,
-            )
+            
           ],
         ),
       ),

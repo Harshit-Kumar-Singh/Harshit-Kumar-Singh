@@ -34,9 +34,6 @@ class _SignUpState extends State<SignUp> {
         UserCredential user = await _auth.createUserWithEmailAndPassword(
             email: _email, password: _password);
         if (user != null) {
-          // UserUpdateInfo updateuser = UserUpdateInfo();
-          // updateuser.displayName = _name;
-          //  user.updateProfile(updateuser);
           await _auth.currentUser.updateProfile(displayName: _name);
           // await Navigator.pushReplacementNamed(context,"/") ;
 
@@ -76,7 +73,7 @@ class _SignUpState extends State<SignUp> {
             Container(
               height: 400,
               child: Image(
-                image: AssetImage("images/login.jpg"),
+                image: AssetImage("assets/Image/register.png"),
                 fit: BoxFit.contain,
               ),
             ),
@@ -86,38 +83,53 @@ class _SignUpState extends State<SignUp> {
                 child: Column(
                   children: <Widget>[
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.isEmpty) return 'Enter Name';
-                          },
-                          decoration: InputDecoration(
-                            labelText: 'Name',
-                            prefixIcon: Icon(Icons.person),
-                          ),
-                          onSaved: (input) => _name = input),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            side: BorderSide(color: Colors.black)),
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.isEmpty) return 'Enter Name';
+                            },
+                            decoration: InputDecoration(
+                              labelText: 'Name',
+                              prefixIcon: Icon(Icons.person,color: Colors.greenAccent,),
+                            ),
+                            onSaved: (input) => _name = input),
+                      ),
                     ),
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.isEmpty) return 'Enter Email';
-                          },
-                          decoration: InputDecoration(
-                              labelText: 'Email',
-                              prefixIcon: Icon(Icons.email)),
-                          onSaved: (input) => _email = input),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            side: BorderSide(color: Colors.black)),
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.isEmpty) return 'Enter Email';
+                            },
+                            decoration: InputDecoration(
+                                labelText: 'Email',
+                                prefixIcon: Icon(Icons.email,color: Colors.greenAccent,)),
+                            onSaved: (input) => _email = input),
+                      ),
                     ),
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.length < 6)
-                              return 'Provide Minimum 6 Character';
-                          },
-                          decoration: InputDecoration(
-                            labelText: 'Password',
-                            prefixIcon: Icon(Icons.lock),
-                          ),
-                          obscureText: true,
-                          onSaved: (input) => _password = input),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            side: BorderSide(color: Colors.black)),
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.length < 6)
+                                return 'Provide Minimum 6 Character';
+                            },
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              prefixIcon: Icon(Icons.lock,color: Colors.greenAccent,),
+                            ),
+                            obscureText: true,
+                            onSaved: (input) => _password = input),
+                      ),
                     ),
                     SizedBox(height: 20),
                     RaisedButton(
@@ -128,7 +140,7 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold)),
-                      color: Colors.orange,
+                      color: Colors.greenAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),

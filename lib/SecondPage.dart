@@ -73,7 +73,9 @@ class _StartState extends State<Start> {
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.greenAccent))
-                ])),
+                ]
+              )
+            ),
             SizedBox(height: 10.0),
             
             SizedBox(height: 30.0),
@@ -99,7 +101,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.greenAccent),
+                    color: Colors.lightGreenAccent[400]),
                 SizedBox(width: 20.0),
                 RaisedButton(
                     padding: EdgeInsets.only(left: 30, right: 30),
@@ -115,7 +117,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.greenAccent),
+                    color: Colors.lightGreenAccent[400]),
               ],
             ),
             SizedBox(height: 20.0),

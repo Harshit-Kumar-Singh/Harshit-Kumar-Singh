@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   height: 300,
                   child: Image(
-                    image: AssetImage("images/welcome.jpg"),
+                    image: AssetImage("assets/Image/Welcome.png"),
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -80,8 +80,10 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
-                          fontWeight: FontWeight.bold)),
-                  color: Colors.orange,
+                          fontWeight: FontWeight.bold
+                      ),
+                  ),
+                  color: Colors.lightGreenAccent[400],
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
@@ -96,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold)),
-                  color: Colors.orange,
+                  color: Colors.lightGreenAccent[400],
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),

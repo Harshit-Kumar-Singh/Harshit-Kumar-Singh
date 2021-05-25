@@ -97,7 +97,8 @@ class _LoginState extends State<Login> {
                             },
                             decoration: InputDecoration(
                                 labelText: 'Email',
-                                prefixIcon: Icon(Icons.email)),
+
+                                prefixIcon: Icon(Icons.email,color: Colors.lightGreenAccent[400])),
                             onSaved: (input) => _email = input),
                       ),
                     ),
@@ -110,13 +111,14 @@ class _LoginState extends State<Login> {
                         elevation: 10,
                         color: Colors.white,
                         child: TextFormField(
+                            
                             validator: (input) {
                               if (input.length < 6)
                                 return 'Provide Minimum 6 Character';
                             },
                             decoration: InputDecoration(
                               labelText: 'Password',
-                              prefixIcon: Icon(Icons.lock),
+                              prefixIcon: Icon(Icons.lock,color: Colors.lightGreenAccent[400],),
                             ),
                             obscureText: true,
                             onSaved: (input) => _password = input),
@@ -125,14 +127,14 @@ class _LoginState extends State<Login> {
                     SizedBox(height: 20),
                     RaisedButton(
                       padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                      highlightColor: Colors.greenAccent,
+                      highlightColor: Colors.lightGreenAccent,
                       onPressed: login,
                       child: Text('LOGIN',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold)),
-                      color: Colors.greenAccent,
+                      color: Colors.lightGreenAccent[400],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),
