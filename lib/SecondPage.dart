@@ -72,7 +72,7 @@ class _StartState extends State<Start> {
                       style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.orange))
+                          color: Colors.greenAccent))
                 ])),
             SizedBox(height: 10.0),
             
@@ -83,7 +83,7 @@ class _StartState extends State<Start> {
                 RaisedButton(
                     padding: EdgeInsets.only(left: 30, right: 30),
                     onPressed: navigateToLogin,
-                    child: Card(
+                    
                         child: Text(
                         'LOGIN',
                         style: TextStyle(
@@ -95,11 +95,11 @@ class _StartState extends State<Start> {
                       ),
                       
                       
-                    ),
+                    
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: Colors.greenAccent),
                 SizedBox(width: 20.0),
                 RaisedButton(
                     padding: EdgeInsets.only(left: 30, right: 30),
@@ -115,7 +115,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: Colors.greenAccent),
               ],
             ),
             SizedBox(height: 20.0),

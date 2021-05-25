@@ -42,8 +42,7 @@ class _LoginState extends State<Login> {
       }
     }
   }
-
-  showError(String errormessage) {
+ showError(String errormessage) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -75,7 +74,7 @@ class _LoginState extends State<Login> {
             Container(
               height: 400,
               child: Image(
-                image: AssetImage("images/login.jpg"),
+                image: AssetImage("assets/Image/Login.png"),
                 fit: BoxFit.contain,
               ),
             ),
@@ -85,38 +84,55 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: <Widget>[
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.isEmpty) return 'Enter Email';
-                          },
-                          decoration: InputDecoration(
-                              labelText: 'Email',
-                              prefixIcon: Icon(Icons.email)),
-                          onSaved: (input) => _email = input),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            side: BorderSide(color: Colors.black)),
+                        borderOnForeground: true,
+                        elevation: 10,
+                        color: Colors.white,
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.isEmpty) return 'Enter Email';
+                            },
+                            decoration: InputDecoration(
+                                labelText: 'Email',
+                                prefixIcon: Icon(Icons.email)),
+                            onSaved: (input) => _email = input),
+                      ),
                     ),
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.length < 6)
-                              return 'Provide Minimum 6 Character';
-                          },
-                          decoration: InputDecoration(
-                            labelText: 'Password',
-                            prefixIcon: Icon(Icons.lock),
-                          ),
-                          obscureText: true,
-                          onSaved: (input) => _password = input),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            side: BorderSide(color: Colors.black)),
+                        borderOnForeground: true,
+                        elevation: 10,
+                        color: Colors.white,
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.length < 6)
+                                return 'Provide Minimum 6 Character';
+                            },
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              prefixIcon: Icon(Icons.lock),
+                            ),
+                            obscureText: true,
+                            onSaved: (input) => _password = input),
+                      ),
                     ),
                     SizedBox(height: 20),
                     RaisedButton(
                       padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                      highlightColor: Colors.greenAccent,
                       onPressed: login,
                       child: Text('LOGIN',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold)),
-                      color: Colors.orange,
+                      color: Colors.greenAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),
