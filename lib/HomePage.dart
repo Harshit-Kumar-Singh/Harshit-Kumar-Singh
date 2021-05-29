@@ -53,14 +53,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         body: Container(
+        
       child: !isloggedin
           ? CircularProgressIndicator()
           : Column(
               children: <Widget>[
                 SizedBox(height: 40.0),
                 Container(
-                  height: 300,
+                  height: 400,
                   child: Image(
                     image: AssetImage("assets/Image/Welcome.png"),
                     fit: BoxFit.contain,
@@ -71,21 +73,7 @@ class _HomePageState extends State<HomePage> {
                     "Hello ${user.displayName} you are Logged in as ${user.email}",
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                RaisedButton(
-                  padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                  onPressed: signOut,
-                  child: Text('Signout',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold
-                      ),
-                  ),
-                  color: Colors.lightGreenAccent[400],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                    textAlign:TextAlign.center,
                   ),
                 ),
                 RaisedButton(
@@ -100,9 +88,29 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.bold)),
                   color: Colors.lightGreenAccent[400],
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                )
+                ),
+                SizedBox(height: 50,),
+                Text(
+                  "Not ${user.displayName}?"
+                  
+                ),
+                RaisedButton(
+                  padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
+                  onPressed: signOut,
+                  child: Text('Signout',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                  ),
+                  color: Colors.lightGreenAccent[400],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
               ],
             ),
     ));

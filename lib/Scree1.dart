@@ -44,7 +44,7 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
     "assets/Image/24.png",
     "assets/Image/25.png",
     "assets/Image/26.png",
-    "assets/Image/27.png"
+    "assets/Image/27.png",
   ];
   @override
   void initState() {
@@ -68,19 +68,17 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.lightGreenAccent[400],
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image.asset(
-              'assets/Image/1.png',
-              fit: BoxFit.contain,
-              height: 20,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text('Cryptpocurrencies')
+            Text(
+              'Crypto Currencies',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            )
           ],
         ),
       ),
@@ -88,6 +86,11 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
       body: ListView.builder(
           itemCount: currencies == null ? 0 : currencies.length,
           itemBuilder: (BuildContext context, int index) {
+            increase = true;
+            if (currencies[index]['changePercent24Hr'][0] == '-') {
+              increase = false;
+             
+            }
             return Container(
               child: Column(
                 children: <Widget>[
@@ -96,70 +99,79 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
                       shadowColor: Colors.blue[200],
                       child: InkWell(
                         onTap: () async {
-
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Details()));
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Row(
-                              children: [
-                                Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    SizedBox(
-                                      height: 30,
-                                    ),
-                                    CircleAvatar(
-                                      radius: 19,
-                                      backgroundColor: Colors.white,
-                                      child: Image(
-                                        image: AssetImage(
-                                          _image[(index) % _image.length],
+                            Container(
+                              padding: EdgeInsets.all(5),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: 30,
+                                      ),
+                                      CircleAvatar(
+                                        radius: 19,
+                                        backgroundColor: Colors.white,
+                                        child: Image(
+                                          image: AssetImage(
+                                            _image[(index) % _image.length],
+                                          ),
+                                          fit: BoxFit.cover,
+                                          alignment: Alignment.topCenter,
                                         ),
-                                        fit: BoxFit.cover,
-                                        alignment: Alignment.topCenter,
                                       ),
-                                    ),
-                                    Text(
-                                      currencies[index]['symbol'],
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                          color: Colors.grey[500],
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      currencies[index]['name'],
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
+                                      Text(
+                                        currencies[index]['symbol'],
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.bold),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        currencies[index]['name'],
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                             Column(
                               children: <Widget>[
                                 Row(
                                   children: [
-                                    Icon(
-                                      Icons.arrow_drop_up,
-                                      color: Colors.green,
-                                      size: 30.0,
-                                    ),
+                                    increase == true
+                                        ? Icon(
+                                            Icons.arrow_drop_up,
+                                            color: Colors.green,
+                                            size: 30.0,
+                                          )
+                                        : Icon(
+                                            Icons.arrow_drop_down,
+                                            color: Colors.red,
+                                            size: 30.0,
+                                          ),
                                     Text(
-                                      "${currencies[index]['changePercent24Hr'].substring(0,5)}%",
+                                      "${currencies[index]['changePercent24Hr'].substring(0, 5)}%",
                                     ),
                                   ],
                                 ),
                                 Text(
-                                  "\$${currencies[index]['priceUsd'].substring(0,7)}",
+                                  "\$${currencies[index]['priceUsd'].substring(0, 7)}",
                                   style: TextStyle(
                                     color: Colors.lightGreenAccent[400],
                                     fontSize: 20,
@@ -184,7 +196,8 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
                 ],
               ),
             );
-          }),
+          },
+     ),
     );
   }
 }

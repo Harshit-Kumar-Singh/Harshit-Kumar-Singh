@@ -93,7 +93,7 @@ class _SignUpState extends State<SignUp> {
                             },
                             decoration: InputDecoration(
                               labelText: 'Name',
-                              prefixIcon: Icon(Icons.person,color: Colors.greenAccent,),
+                              prefixIcon: Icon(Icons.person,color: Colors.lightGreenAccent[400],),
                             ),
                             onSaved: (input) => _name = input),
                       ),
@@ -109,7 +109,7 @@ class _SignUpState extends State<SignUp> {
                             },
                             decoration: InputDecoration(
                                 labelText: 'Email',
-                                prefixIcon: Icon(Icons.email,color: Colors.greenAccent,)),
+                                prefixIcon: Icon(Icons.email,color: Colors.lightGreenAccent[400],)),
                             onSaved: (input) => _email = input),
                       ),
                     ),
@@ -125,7 +125,7 @@ class _SignUpState extends State<SignUp> {
                             },
                             decoration: InputDecoration(
                               labelText: 'Password',
-                              prefixIcon: Icon(Icons.lock,color: Colors.greenAccent,),
+                              prefixIcon: Icon(Icons.lock,color: Colors.lightGreenAccent[400],),
                             ),
                             obscureText: true,
                             onSaved: (input) => _password = input),
@@ -140,7 +140,7 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold)),
-                      color: Colors.greenAccent,
+                      color: Colors.lightGreenAccent[400],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),

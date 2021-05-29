@@ -76,6 +76,7 @@ class _StartState extends State<Start> {
                 ]
               )
             ),
+            
             SizedBox(height: 10.0),
             
             SizedBox(height: 30.0),
@@ -96,8 +97,6 @@ class _StartState extends State<Start> {
                         
                       ),
                       
-                      
-                    
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -121,8 +120,7 @@ class _StartState extends State<Start> {
               ],
             ),
             SizedBox(height: 20.0),
-            SignInButton(Buttons.Google,
-                text: "Sign up with Google", onPressed: googleSignIn)
+            
           ],
         ),
       ),
