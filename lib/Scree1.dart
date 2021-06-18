@@ -8,7 +8,7 @@ import './Screen2.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
-
+import './cart_items_bloc.dart';
 class DashBoardFinal extends StatefulWidget {
   @override
   _DashBoardFinalState createState() => _DashBoardFinalState();
@@ -99,7 +99,7 @@ class _DashBoardFinalState extends State<DashBoardFinal> {
                       shadowColor: Colors.blue[200],
                       child: InkWell(
                         onTap: () async {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Details()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Details(currencies,index,_image)));
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

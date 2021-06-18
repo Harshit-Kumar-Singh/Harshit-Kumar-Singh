@@ -1,5 +1,6 @@
 
 import 'package:First_App/Scree1.dart';
+import 'package:First_App/Subscribed.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // import 'package:authentification/Start.dart';
@@ -79,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 RaisedButton(
                   padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
                   onPressed:(){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => DashBoardFinal()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TodoApp()));
                   },
                   child: Text('Lets Get Started',
                       style: TextStyle(
