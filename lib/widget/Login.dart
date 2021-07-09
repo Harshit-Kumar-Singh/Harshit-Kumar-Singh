@@ -6,29 +6,23 @@ class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
-
 class _LoginState extends State<Login> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   String _email, _password;
-
   checkAuthentification() async {
     _auth.authStateChanges().listen((user) {
       if (user != null) {
         print(user);
-
         Navigator.pushReplacementNamed(context, "/");
       }
     });
   }
-
   @override
   void initState() {
     super.initState();
     this.checkAuthentification();
   }
-
   login() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
@@ -57,13 +51,12 @@ class _LoginState extends State<Login> {
                   child: Text('OK'))
             ],
           );
-        });
-  }
-
+        }
+      );
+    }
   navigateToSignUp() async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

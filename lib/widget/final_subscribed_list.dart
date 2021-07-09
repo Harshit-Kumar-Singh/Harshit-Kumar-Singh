@@ -8,6 +8,7 @@ class SubscribedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Subscribed List"),),
       body: ListView.builder(
           itemCount: subs == null ? 0 : subs.length,
           itemBuilder: (BuildContext, int index) {
@@ -18,7 +19,7 @@ class SubscribedList extends StatelessWidget {
                     child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(subs[index].logo),
+                      Text(subs[index].symbol),
                       Text(subs[index].name),
                     ],
                   ))

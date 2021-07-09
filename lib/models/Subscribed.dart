@@ -1,6 +1,6 @@
 
 class Subscribed {
-  String logo;
+  String symbol;
   String name;
-  Subscribed({this.logo, this.name});
+  Subscribed({this.symbol, this.name});
 }

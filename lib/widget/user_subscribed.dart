@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../models/Subscribed.dart';
 import './subscribed_list.dart';
 import './access_list.dart';
+import './HomePage.dart';
+import './getx_var.dart';
 
 class UserSubscribed extends StatefulWidget {
   List currencies;
@@ -18,6 +20,7 @@ class _UserSubscribedState extends State<UserSubscribed> {
   final List<Subscribed> _userSubscribed = [];
   void _addNewSubscribed(final newSubs) {
     final_list.add(newSubs);
+    print(final_list);
   }
 
   @override

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './final_subscribed_list.dart';
 import '../models/Subscribed.dart';
-
+import './HomePage.dart';
 class NewSubscribed extends StatelessWidget {
   List currencies;
   int index;
@@ -27,13 +27,13 @@ class NewSubscribed extends StatelessWidget {
                 onPressed: () {
                   bool flag = false;
                   for (var item in final_l) {
-                    if (item.logo == currencies[index]['symbol']) {
+                    if (item.symbol == currencies[index]['symbol']) {
                       flag = true;
                       break;
                     }
                   }
                   final check = Subscribed(
-                      logo: currencies[index]['symbol'],
+                      symbol: currencies[index]['symbol'],
                       name: currencies[index]['name'],
                   );
                   if (flag) {
