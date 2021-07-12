@@ -1,15 +1,6 @@
 import 'dart:ui';
-import 'package:First_App/widget/user_subscribed.dart';
-
-import './Scree1.dart';
-import '../models/Subscribed.dart';
-import '../main.dart';
+import 'package:First_App/widget/new_subs.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import './SignUpPage.dart';
-
-
 class Details extends StatelessWidget {
 
   List currencies;
@@ -288,7 +279,7 @@ class Details extends StatelessWidget {
                   ),
                 ),
               ),
-              UserSubscribed(currencies, index),
+              NewSubscribed(currencies: currencies,index: index,),
               //new_Subs.dart
               //SubscribedList
             ],

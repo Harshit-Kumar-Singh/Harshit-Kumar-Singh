@@ -4,17 +4,19 @@ import './Scree1.dart';
 import 'package:First_App/models/Subscribed.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:authentification/Start.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import './access_list.dart';
-import './user_subscribed.dart';
-import 'getx_var.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../models/access_list.dart';
+import '../models/Subscribed.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
   bool isloggedin = false;
@@ -46,17 +48,54 @@ class _HomePageState extends State<HomePage> {
     await googleSignIn.signOut();
   }
 
+  final box = GetStorage();
+  final countBox = GetStorage();
+  List<Subscribed> final_list = [];
+  void restoreSubscribeds() {
+    final_list.clear();
+    storageList = box.read('Subscribeds');
+    print(storageList);
+    String nameKey, symbolKey;
+
+    print("StorageListLenght -- ${storageList.length}");
+    print("count -- ${countBox.read('count')}");
+    for (int i = 0; i < storageList.length; i++) {
+      final map = storageList[i];
+      // index for retreival keys accounting for index starting at 0
+      final index = i + 1;
+
+      nameKey = 'name$i';
+      symbolKey = 'symbol$i';
+
+      // recreating Subscribed objects from storage
+
+      final Subs = Subscribed(name: map[nameKey], symbol: map[symbolKey]);
+
+      final_list
+          .add(Subs); // adding Subscribeds back to your normal Subscribed list
+      print(Subs.symbol);
+    }
+    print("-----In restore Function----");
+    for (int i = 0; i < final_list.length; i++) {
+      debugPrint(
+          'Subscribed ${i + 1} name ${final_list[i].name} symbol: ${final_list[i].symbol}');
+    }
+  }
+
+  void copydata() {
+    access_list = final_list;
+  }
+
   @override
   void initState() {
     super.initState();
     this.checkAuthentification();
     this.getUser();
-   
+    // restore();
   }
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
@@ -123,11 +162,13 @@ class _HomePageState extends State<HomePage> {
                     RaisedButton(
                       padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
                       onPressed: () {
+                        restoreSubscribeds();
+                        copydata();
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    SubscribedList(final_list)));
+                                    SubscribedList(access_list)));
                       },
                       child: Text(
                         'Subscribed List',
