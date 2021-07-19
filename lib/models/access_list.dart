@@ -1,6 +1,16 @@
 import 'package:First_App/models/Subscribed.dart';
+import 'dart:math';
+import 'package:First_App/widget/final_subscribed_list.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:First_App/models/Subscribed.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import '../models/access_list.dart';
+import '../models/Subscribed.dart';
 
-List<Subscribed> access_list;
+
+ List<Subscribed> access_list = [];
 int count;
 List storageList = [];
 List image = [
@@ -32,3 +42,4 @@ List image = [
     "assets/Image/26.png",
     "assets/Image/27.png",
   ];
+  String Keyword ;

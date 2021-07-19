@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/Subscribed.dart';
@@ -22,24 +21,25 @@ class _NewSubscribedState extends State<NewSubscribed> {
   List<Subscribed> final_list = [];
   void addAndStoreSubscribed(Subscribed Subs) {
     final storageMap = {};
-    count = countBox.read('count');
+    count = countBox.read(Keyword+'count');
     final nameKey = 'name$count';
     final symbolKey = 'symbol$count';
     storageMap[nameKey] = Subs.name;
     storageMap[symbolKey] = Subs.symbol;
 
     storageList.add(storageMap); // adding temp map to storageList
-    box.write('Subscribeds', storageList);
+    box.write(Keyword, storageList);
     count++;
-    countBox.write('count', count);
+    countBox.write(Keyword+'count', count);
     // adding list of maps to storage
+    //clearSubscribeds();
   }
 
   void clearSubscribeds() {
     final_list.clear();
     storageList.clear();
     box.erase();
-    count = 0;
+    countBox.erase();
   }
 
   // @override
@@ -54,36 +54,77 @@ class _NewSubscribedState extends State<NewSubscribed> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextButton(
+        RaisedButton(
+          padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
           onPressed: () {
+            bool check = true;
             String name_c = widget.currencies[widget.index]['name'];
             String symbol_c = widget.currencies[widget.index]['symbol'];
-            final Subs = Subscribed(name: name_c, symbol: symbol_c);
-            countBox.writeIfNull('count', 0);
-            addAndStoreSubscribed(Subs);
+            storageList = box.read(Keyword);
+            if (storageList == null) {
+            } else {
+              if (storageList.length == null) {
+              } else {
+                for (int i = 0; i < storageList.length; i++) {
+                  print(storageList[i]['symbol$i']);
+                  if (storageList[i]['symbol$i'] == symbol_c) {
+                    check = false;
+                    break;
+                  }
+                }
+              }
+            }
+            if (check == false) {
+              showMessage(context);
+            } else {
+              final Subs = Subscribed(name: name_c, symbol: symbol_c);
+              countBox.writeIfNull(Keyword+'count', 0);
+              box.writeIfNull(Keyword, []);
+              addAndStoreSubscribed(Subs);
+              showMessage2(context);
+            }
+            //clearSubscribeds();
 
             //printSubscribeds();
           },
           child: Text(
-            'Add Subscribed',
-            style: TextStyle(color: Colors.blue),
+            'Subscribe',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold),
           ),
-        ),
-        TextButton(
-          onPressed: () {},
-          child: Text('Print Storage'),
-        ),
-        TextButton(
-          onPressed: () {
-            clearSubscribeds();
-          },
-          child: Text('Clear Subscribeds'),
+          color: Colors.lightGreenAccent[400],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
         ),
       ],
     );
   }
 }
 
+void showMessage(BuildContext context) {
+  var dailog = AlertDialog(
+    content: Text("Currency already present"),
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return dailog;
+      });
+}
+
+void showMessage2(BuildContext context) {
+  var dailog = AlertDialog(
+    content: Text("Currency added to subscribed List successfully"),
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return dailog;
+      });
+}
 // class NewSubscribed extends StatelessWidget {
 //   List currencies;
 //   int index;
