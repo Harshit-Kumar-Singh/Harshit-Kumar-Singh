@@ -67,31 +67,41 @@ class _State extends State<SubscribedList> {
           itemCount: widget.subs == null ? 0 : widget.subs.length,
           itemBuilder: (BuildContext, int index) {
             return Container(
+             
               child: Column(
                 children: [
-                  Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        side: BorderSide(color: Colors.black)),
-                    borderOnForeground: true,
-                    elevation: 10,
-                    color: Colors.white,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(widget.subs[index].symbol,style: TextStyle(fontSize: 20,color:Colors.blue),),
-                        Text(widget.subs[index].name,style: TextStyle(fontSize: 20,color:Colors.blue),),
-                        IconButton(
-                            icon: Icon(Icons.delete),
-                            onPressed: () {
-                              setState(() {
-                                deleteCurrency(index);
-                                print("in delete icon");
+                  
+                  Container(
+                     padding: EdgeInsets.all(4),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          side: BorderSide(color: Colors.black)),
+                      borderOnForeground: true,
+                      elevation: 10,
+                      color: Colors.white,
+                      
+                      child: Container(
+                        padding: EdgeInsets.fromLTRB(3, 0, 3, 0),
+                        child: Row(
+                          
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(widget.subs[index].symbol,style: TextStyle(fontSize: 20,color:Colors.blue),),
+                            Text(widget.subs[index].name,style: TextStyle(fontSize: 20,color:Colors.blue),),
+                            IconButton(
+                                icon: Icon(Icons.delete),
+                                onPressed: () {
+                                  setState(() {
+                                    deleteCurrency(index);
+                                    print("in delete icon");
+                                  }
+                                );
                               }
-                            );
-                          }
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ],
