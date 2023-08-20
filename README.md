@@ -1,9 +1,9 @@
 <h1 align="center">Hi 👋, I'm Harshit Kumar Singh</h1>
-<h3 align="center">A CSE student searching for great opportunities</h3>
+<h3 align="center">Software Developer</h3>
 
-- 🌱 I’m currently learning **Flutter,Dart,DSA(Always Learning)**
+- 🌱 I’m currently learning **Javascript, Angular**
 
-- 📫 How to reach me **kaumarharshit@gmail.com**
+- 📫 How to reach me **harshitkumars192@gmail.com**
 
 - ⚡ Fun fact **Not Funny**
 
