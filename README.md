@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Harshit Kumar Singh</h1>
-<h3 align="center">Software Developer</h3>
+<h3 align="center">Software Developer / Full Stack Engineer</h3>
 
 - 🌱 I’m currently learning **Javascript, Angular, .Net Core**
 
