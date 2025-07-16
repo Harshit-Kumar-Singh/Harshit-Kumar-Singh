@@ -1,11 +1,9 @@
 <h1 align="center">Hi 👋, I'm Harshit Kumar Singh</h1>
 <h3 align="center">Software Developer</h3>
 
-- 🌱 I’m currently learning **Javascript, Angular**
+- 🌱 I’m currently learning **Javascript, Angular, .Net Core**
 
 - 📫 How to reach me **harshitkumars192@gmail.com**
-
-- ⚡ Fun fact **Not Funny**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
